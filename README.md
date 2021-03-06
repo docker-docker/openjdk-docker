@@ -1,2 +1,3 @@
 # openjdk-docker
-alpine version for jdk11
+slim version for jdk docker image
+
