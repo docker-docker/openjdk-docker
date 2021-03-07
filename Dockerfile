@@ -1,6 +1,14 @@
 FROM adoptopenjdk/openjdk11:jdk-11.0.10_9-slim
-WORKDIR /opt
+ENV TIMEZONE=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime && echo $TIMEZONE > /etc/timezone
 
-# entrypoint script
-COPY entrypoint.sh /opt/
-ENTRYPOINT ["/opt/entrypoint.sh"]
+VOLUME /opt/app
+EXPOSE 8080
+
+WORKDIR /opt/app
+# copy the main application
+RUN mv ./target/*.jar /opt/app.jar
+COPY entrypoint.sh /opt/app/
+RUN chmod +x /opt/app/entrypoint.sh
+
+ENTRYPOINT ["/opt/app/entrypoint.sh"]
