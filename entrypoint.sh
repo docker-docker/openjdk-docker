@@ -6,4 +6,4 @@ APP_PROPS="-Djava.security.egd=file:/dev/./urandom"
 # SPRINGBOOT_ARGS="--spring.config.location=/opt/ --logging.config=/opt/logback.xml"
 
 java "${JVM_ARGS}" "${APP_PROPS}" -jar /opt/app.jar
-#java "${JVM_ARGS}" "${APP_PROPS}" -jar /opt/app.jar "${SPRINGBOOT_ARGS}"
+# java "${JVM_ARGS}" "${APP_PROPS}" -jar /opt/app.jar "${SPRINGBOOT_ARGS}"
