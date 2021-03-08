@@ -6,7 +6,7 @@ VOLUME /opt/app
 EXPOSE 8080
 
 WORKDIR /opt/app
-# copy the main application
+# copy the java main application
 RUN mv -f ./target/*.jar /opt/app.jar 2>/dev/null; true
 COPY entrypoint.sh /opt/app/
 RUN chmod +x /opt/app/entrypoint.sh
